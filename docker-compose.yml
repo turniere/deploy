@@ -28,7 +28,7 @@ services:
       - traefik
 
   frontend:
-    image: 
+    image: registry.gitlab.com/turniere/turniere-frontend/production:deploy
     restart: always
     container_name: "turniere-frontend"
     env_file:
@@ -41,7 +41,7 @@ services:
       - traefik
 
   backend:
-    image: 
+    image: registry.gitlab.com/turniere/turniere-backend/production:deploy
     restart: always
     container_name: "turniere-backend"
     env_file:
