@@ -1,0 +1,29 @@
+debug = false
+
+logLevel = "INFO"
+defaultEntryPoints = ["https","http"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[retry]
+
+[docker]
+exposedByDefault = false
+
+[acme]
+email = "all@turnie.re"
+storage = "acme.json"
+entryPoint = "https"
+  [acme.httpChallenge]
+  entryPoint = "http"
+
+[[acme.domains]]
+  main = "your.domain" # Enter main domain here (normally used for the frontend)
+  sans = ["api.your.domain"] # Enter Subdomains here (normally api.main is used for backend)
